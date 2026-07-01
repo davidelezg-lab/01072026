@@ -2,7 +2,7 @@
 using namespace std;
 
 int suma(int a, int b) {
-    int resultado = a + b;  // inicializado
+    int resultado = a + b  // inicializado
     return resultado;
 }
 
