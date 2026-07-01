@@ -1,0 +1,21 @@
+name: CI C++
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      # Compilar tests
+      - name: Compilar test
+        run: g++ main.test.cpp -o test
+
+      # Ejecutar tests
+      - name: Ejecutar test
+        run: ./test
