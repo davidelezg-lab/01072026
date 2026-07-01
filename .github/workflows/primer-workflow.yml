@@ -1,11 +1,14 @@
-name: Mi primer workflow
+name: Explicación workflow
 
 on: push
 
 jobs:
-  saludo:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mostrar mensaje
-        run: echo "Hola desde GitHub Actions"
+      - name: Paso 1
+        run: echo "Paso 1"
+
+      - name: Paso 2
+        run: echo "Paso 2"
