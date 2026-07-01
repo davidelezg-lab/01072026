@@ -3,18 +3,19 @@ name: CI C++
 on:
   push:
     branches: [ main ]
-  pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Compilar
-        run: g++ main.cpp -o app
+      # Compilar tests
+      - name: Compilar test
+        run: g++ main.test.cpp -o test
 
-      - name: Ejecutar
-        run: ./app
+      # Ejecutar tests
+      - name: Ejecutar test
+        run: ./test
