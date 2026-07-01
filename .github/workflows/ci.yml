@@ -1,8 +1,8 @@
-name: CI Node.js
+name: CI C++
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -12,13 +12,10 @@ jobs:
       - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Instalar Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      # Compilar tests
+      - name: Compilar test
+        run: g++ --coverage main.test.cpp -o test
 
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Ejecutar tests
-        run: npm test
+      # Ejecutar tests
+      - name: Ejecutar test
+        run: ./test

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/davidelezg-lab/01072026#readme",
   "devDependencies": {
-    "jest": "^30.4.2"
+    "jest": "^30.4.2",
+    "sonarqube-scanner": "^4.3.8"
   }
 }

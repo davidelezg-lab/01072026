@@ -14,7 +14,7 @@ jobs:
 
       # Compilar tests
       - name: Compilar test
-        run: g++ main.test.cpp -o test
+        run: g++ --coverage main.test.cpp -o test
 
       # Ejecutar tests
       - name: Ejecutar test
