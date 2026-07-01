@@ -1,14 +1,16 @@
-name: Explicación workflow
+name: Ejecutar comandos
 
 on: push
 
 jobs:
-  build:
+  comandos:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Paso 1
-        run: echo "Paso 1"
+      - uses: actions/checkout@v4
 
-      - name: Paso 2
-        run: echo "Paso 2"
+      - name: Ver archivos
+        run: ls -la
+
+      - name: Mostrar fecha
+        run: date
