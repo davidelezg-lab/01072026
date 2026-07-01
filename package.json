@@ -1,0 +1,23 @@
+{
+  "name": "01072026",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidelezg-lab/01072026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidelezg-lab/01072026/issues"
+  },
+  "homepage": "https://github.com/davidelezg-lab/01072026#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
