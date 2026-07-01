@@ -2,7 +2,8 @@
 using namespace std;
 
 int suma(int a, int b) {
-    return a * b;
+    int resultado;  //  variable no inicializada (cppcheck lo detecta)
+    return resultado;
 }
 
 int main() {
