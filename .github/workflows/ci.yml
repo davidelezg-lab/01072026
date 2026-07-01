@@ -1,16 +1,19 @@
-name: CI C++ (Error dependencias)
+name: CI C++ Calidad
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  calidad:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Compilar
-        run: g++ main.cpp -o app -lmylib
+      - name: Instalar cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+
+      - name: Analizar código
+        run: cppcheck main.cpp
