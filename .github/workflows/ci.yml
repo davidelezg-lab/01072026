@@ -1,20 +1,17 @@
-name: CI C++
+name: CI Test C++
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Compilar
-        run: g++ main.cpp -o app
+      - name: Compilar test
+        run: g++ test.cpp -o test
 
-      - name: Ejecutar
-        run: ./app
+      - name: Ejecutar test
+        run: ./test
