@@ -1,21 +1,20 @@
-name: CI C++
+name: C++ + Sonar
 
 on:
   push:
-    branches: [ main ]
 
 jobs:
-  test:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Compilar tests
-      - name: Compilar test
-        run: g++ --coverage main.test.cpp -o test
+      - name: Instalar cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
 
-      # Ejecutar tests
-      - name: Ejecutar test
-        run: ./test
+      - name: Analizar código
+        run: cppcheck --error-exitcode=1 main.cpp
+
+      - name: Ejecutar SonarScanner
+        run: sonar-scanner
