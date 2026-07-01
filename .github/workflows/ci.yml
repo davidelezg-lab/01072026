@@ -1,4 +1,4 @@
-name: C++ + Sonar
+name: CI C++ + SonarCloud
 
 on:
   push:
@@ -8,18 +8,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
 
-      - name: Instalar cppcheck
-        run: sudo apt-get update && sudo apt-get install -y cppcheck
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Analizar código
-        run: cppcheck --error-exitcode=1 main.cpp
+      - name: Instalar herramientas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++
 
-      - name: Ejecutar SonarScanner
-        run: sonar-scanner
+      - name: Compilar
+        run: g++ main.cpp -o app
+
+      - name: Ejecutar
+        run: ./app
 
       - name: SonarCloud Scan
-	uses: SonarSource/sonarqube-scan-action@v5
-	env:
-	SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
